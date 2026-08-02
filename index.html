@@ -123,7 +123,7 @@
 
     /* Sezioni di Contenuto */
     .content-section {
-      padding: 5rem 0;
+      padding: 3rem 0;
       margin-bottom: 2rem;
       border-radius: 0;
       position: relative;
@@ -169,42 +169,6 @@
       color: var(--dark-text);
     }
 
-    /* Galleria immagini */
-    .history-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2.5rem 0;
-    }
-
-    .history-gallery-item {
-      flex: 1 1 300px;
-      max-width: 400px;
-      text-align: center;
-    }
-
-    .history-gallery-item img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
-    }
-
-    .history-gallery-item img:hover {
-      transform: scale(1.02);
-    }
-
-    .history-gallery-caption {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.95rem;
-      text-align: center;
-      color: var(--dark-text);
-      margin-top: 1rem;
-      font-style: italic;
-    }
-
     /* Quote */
     .quote {
       font-family: 'Cormorant Garamond', serif;
@@ -218,6 +182,107 @@
       border-left: 4px solid var(--rust);
       border-radius: 0 8px 8px 0;
     }
+
+    /* ===========================
+   CAROSELLO FOTO
+=========================== */
+
+.carousel-container{
+    max-width:900px;
+    margin:3rem auto;
+    padding:0;
+}
+
+#photoCarousel{
+    width:100%;
+}
+
+.carousel-inner{
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.carousel-item{
+    text-align:center;
+    background:#000;
+}
+
+.carousel-item img{
+    display:block;
+    width:100%;
+    height:75vh;
+    object-fit:contain;
+    object-position:center;
+    margin:auto;
+}
+
+.carousel-control-prev,
+.carousel-control-next{
+    width:12%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background-color:rgba(0,0,0,.6);
+    background-size:55%;
+}
+
+.carousel-indicators{
+    margin-top:15px;
+    position:static;
+}
+
+.carousel-indicators button{
+    width:10px !important;
+    height:10px !important;
+    border-radius:50%;
+    background-color:var(--rust) !important;
+}
+
+/* ---------- TABLET ---------- */
+
+@media (max-width:992px){
+
+    .carousel-item img{
+        height:70vh;
+    }
+
+}
+
+/* ---------- TELEFONO ---------- */
+
+@media (max-width:768px){
+
+    .carousel-container{
+        width:100%;
+        padding:0;
+    }
+
+    .carousel-item img{
+        width:100%;
+        height:82vh;
+        object-fit:contain;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next{
+        width:15%;
+    }
+
+}
+
+/* ---------- TELEFONI PICCOLI ---------- */
+
+@media (max-width:480px){
+
+    .carousel-item img{
+        height:85vh;
+    }
+
+}
 
     /* Footer */
     .footer {
@@ -268,16 +333,17 @@
       .hero h1 { font-size: 3rem; }
       .hero p { font-size: 1.1rem; }
       .section-title { font-size: 2rem; }
-      .history-gallery { gap: 1.5rem; }
     }
 
     @media (max-width: 768px) {
       .hero { padding: 100px 0; }
       .hero-content { padding: 1.5rem; }
-      .content-section { padding: 3rem 0; }
+      .content-section { padding: 2rem 0; }
       .hero h1 { font-size: 2.5rem; }
-      .history-gallery { flex-direction: column; align-items: center; }
       .logo, .footer-logo { height: 35px; margin: 0 0.5rem; }
+      .carousel-item img {
+        max-height: 70vh; /* Altezza leggermente ridotta su mobile */
+      }
     }
   </style>
 </head>
@@ -318,61 +384,106 @@
     </div>
   </section>
 
-  <!-- Contenuto Principale -->
-  <div class="container">
-    <!-- Sezione: La Degna Sepoltura -->
-    <section class="content-section">
-      <div class="container">
-        <h2 class="section-title">La Sepoltura</h2>
-        <p>La fine della guerra rese possibile un gesto atteso per mesi dalla comunità di San Benigno: dare degna sepoltura ai tredici giovani uccisi il 2 febbraio 1945 nella rappresaglia nazifascista.</p>
-      </div>
-    </section>
+  <!-- Sezione: Relazione del Massacro -->
+  <section class="content-section">
+    <div class="container">
+      <h2 class="section-title">Relazione del Massacro perpetrato in San Benigno il <br>2 Febbraio 1945</h2>
 
-    <div>
-      <div class="history-gallery">
-        <div class="history-gallery-item">
-          <img src="./img/3.jpeg" alt="Immagine storica della cerimonia">
-          <p class="history-gallery-caption">Il manifesto funebre</p>
-        </div>
-        <div class="history-gallery-item">
-          <img src="./img/4.jpeg" alt="Corteo funebre">
-          <p class="history-gallery-caption">Le 13 vittime della rappresaglia</p>
-        </div>
+      <div class="quote">
+        “Eccellenza Reverendissima, <br> <br>
+        Nella notte dal 1° al 2 febbraio, da alcuni malviventi, così mi fu riferito, veniva ucciso nella vicina Tarantasca, un soldato della Guardia Repubblicana. Il giorno seguente, Festa della Purificazione di Maria SS., come in tutte le Parrocchie limitrofe, così in S. Benigno si considerò giorno festivo con orario festivo al completo. All'ora fissata, cioè alle 10,30, il sacrestano, colla campana piccola, diede il segnale dell'inizio della funzione. Don Sasia, Don Ghibaudo ed io, stavamo vestendoci in sacrestia, quando dalla vicina strada di Tarantasca ci giunse l'eco di numerosi colpi d'arma da fuoco: non ne facemmo caso ed uscimmo per la benedizione delle Candele. Appena all'Altare, notai in chiesa un tafferuglio insolito; invitai la popolazione al silenzio ed incomincia la funzione. Non avevo ancora terminata la benedizione delle candele, che mi si venne affannosamente a chiamare di portarmi subito fuori, perché in caso contrario mi avrebbero sparato in Chiesa. Accompagnato da Don Ghibaudo, in piviale, uscii, ed appena giunto sulla piazza, mi resi conto del pericolo che incombeva alla popolazione: polizia in borghese, ed un numero non indifferente di soldati avevano bloccato ogni accesso sia alla piazza come alla Chiesa; una cospicua parte della popolazione, immobilizzata sul piazzale, tutti gli uomini da una parte e al muro. Il sottotenente FREZZA, comandante del Plotone, dopo di avermi domandato perché io avessi suonato le campane, mi investi dicendomi che io avevo dato l'allarme perché arrivavano i Repubblicani, che non era la prima volta che accadeva un simile fatto; che aveva riguardo al modo con cui io era vestito, se no, il primo ad essere ucciso sarei stato proprio io; ad ogni buon conto, egli avrebbe prelevato venti persone che avrebbe fucilato e che il responsabile sarei stato io, proprio io, solamente io, perché protettore di briganti e di banditi che voi chiamate PATRIOTI. Rientrato in Chiesa iniziai come potei la Santa Messa in mezzo ad una confusione indescrivibile. Al Vangelo, il detto Sottotenente, con alcuni agenti in borghese, entrarono in Chiesa per prelevare i giovani che assistevano alla Messa. Stavo rientrando in Sacrestia, quando si ode in chiesa un pianto indescrivibile, un urlo generale, un fuggi fuggi pazzesco allo scopo di trovare un rifugio qualsiasi. Alcune persone si precipitarono in sacrestia per avvertirmi che avevano fatto fuoco sui giovani: accorsi con Don Ghibaudo; e in piazza si offri ai nostri occhi uno spettacolo orrendo: 13 giovani giacevano immersi nel proprio sangue, la maggior parte dei quali non dava più segno di vita; a tutti amministrammo l'Olio Santo e l'assoluzione sub conditione. Alla sera, alle 16,30 fui chiamato a Cuneo, e dopo una lunga Via Crucis tra la caserma degli Agenti in via Teatro Toselli e la Questura, finalmente verso le 18,30 fui ricevuto dal Questore, il quale mi ripetè l'accusa del suono delle campane - non mi fu possibile persuaderlo del giorno festivo - e alla domanda "QUANTI DEI 13 UCCISI APPARTENESSERO AI BANDITI" avendo io risposto: "NESSUNO, SIGNOR QUESTORE", cosi mi apostrofo: "NOI NON SIAMO COME COME GESÙ CRISTO CHE VEDE ATTRAVERSO I MURI, MA SE FACCIAMO QUALCHE COSA, SI È PERCHÈ CE LO HANNO PORTATO QUI; COSÌ DOVETE FARE VOI, DENUNZIARE, DENUNZIARE! E NON RENDERVI COLPEVOLI DI OMERTÀ".
+        Questa è la tristissima, veritiera ed obbiettiva storia del massacro del 2 Febbraio, nel quale hanno perduta la vita 10 giovani di San Benigno e tre dell'Italia Meridionale, ospiti di famiglie San Benignesi. Sta però il fatto che nessuno di San Benigno partecipò all'uccisione del soldato di Tarantasca; che tutti i giovani vittime della crudele rappresaglia erano a posto ed avevano ubbidito all'invito del Prefetto e per consiglio del Parroco avevano regolarizzato la loro posizione; anzi devo dire con orgoglio, seppure con immenso dolore, che nella quasi totalità, erano i migliori giovani della Parrocchia. La popolazione di San Benigno, esterrefatta da tanto crudele massacro, non perde la sua fede, ma anzi, riunita compatta alla sua Chiesa, prega pace per i suoi poveri figli caduti ed invoca dall' E. V La paterna Benedizione onde sia in grado di sopportare con cristiana fortezza tanta e non meritata prova.
+
+        <br>
+        San Benigno, <br> 5 febbraio 1945
+
+        <br><br>
+        Sac. Giovanni Cometto - Priore”
       </div>
+
+      <div class="carousel-container">
+
+    <div id="photoCarousel"
+         class="carousel slide"
+         data-bs-ride="carousel"
+         data-bs-touch="true"
+         data-bs-interval="5000">
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <img src="img/13.png" class="d-block w-100" alt="Foto 1">
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/14.jpg" class="d-block w-100" alt="Foto 2">
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/15.png" class="d-block w-100" alt="Foto 3">
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/16.jpeg" class="d-block w-100" alt="Foto 4">
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/17.jpeg" class="d-block w-100" alt="Foto 5">
+            </div>
+
+        </div>
+
+        <!-- Freccia sinistra -->
+        <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#photoCarousel"
+                data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon"></span>
+
+        </button>
+
+        <!-- Freccia destra -->
+        <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#photoCarousel"
+                data-bs-slide="next">
+
+            <span class="carousel-control-next-icon"></span>
+
+        </button>
+
+        <!-- Indicatori -->
+
+        <div class="carousel-indicators">
+
+            <button type="button"
+                    data-bs-target="#photoCarousel"
+                    data-bs-slide-to="0"
+                    class="active"></button>
+
+            <button type="button"
+                    data-bs-target="#photoCarousel"
+                    data-bs-slide-to="1"></button>
+
+            <button type="button"
+                    data-bs-target="#photoCarousel"
+                    data-bs-slide-to="2"></button>
+
+            <button type="button"
+                    data-bs-target="#photoCarousel"
+                    data-bs-slide-to="3"></button>
+
+            <button type="button"
+                    data-bs-target="#photoCarousel"
+                    data-bs-slide-to="4"></button>
+
+        </div>
+
     </div>
 
-    <!-- Sezione: La Grande Cerimonia -->
-    <section class="content-section">
-      <div class="container">
-        <h2 class="section-title">I Funerali</h2>
-        <p>Il 18 novembre 1945 la frazione fu teatro di una grande cerimonia commemorativa, annunciata pubblicamente dal sindaco con un manifesto rivolto ai cittadini. L’invito sottolineava come la partecipazione collettiva dovesse rappresentare un segno di vicinanza alle famiglie colpite e, insieme, un tributo civile a chi era caduto "per la conquista della Libertà soffocata dal nazifascismo".</p>
-
-        <p>La giornata si aprì con un momento commemorativo nel luogo dell’eccidio: lo scoprimento di un ricordo marmoreo, la celebrazione della messa e l’orazione ufficiale delle autorità. Seguirono poi le solenni esequie dei tredici caduti, accompagnate da una straordinaria partecipazione popolare.</p>
-
-        <!-- Galleria immagini -->
-        <div class="history-gallery">
-          <div class="history-gallery-item">
-            <img src="./img/2.jpeg" alt="Manifesto commemorativo">
-            <p class="history-gallery-caption">Il corteo funebre del 18 novembre 1945</p>
-          </div>
-        </div>
-
-        <p>In quell’occasione venne inaugurata all’interno del cimitero della frazione una tomba appositamente costruita per custodire definitivamente le salme. Fino a quel momento i corpi erano stati deposti in una fossa comune, in attesa di una sepoltura definitiva che potesse restituire dignità individuale e memoria pubblica alle vittime.</p>
-
-        <div class="quote">
-          La lapide reca ancora oggi la scritta "Caduti per rappresaglia fascista", sintesi di una memoria che la comunità ha voluto consegnare alle generazioni successive.
-        </div>
-        <div class="history-gallery">
-          <div class="history-gallery-item">
-            <img src="./img/5.jpeg" alt="Lapide commemorativa">
-            <p class="history-gallery-caption">La lapide commemorativa</p>
-          </div>
-        </div>
-
-        <p>Ogni anno, il 2 febbraio, San Benigno rinnova questo ricordo con una celebrazione religiosa, una cerimonia civile e la deposizione di una corona di fiori nel luogo esatto della fucilazione, davanti alla lapide che riporta i nomi delle vittime. Alla loro memoria è dedicata anche la piazza centrale del paese.</p>
-      </div>
-    </section>
-  </div>
+</div>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
