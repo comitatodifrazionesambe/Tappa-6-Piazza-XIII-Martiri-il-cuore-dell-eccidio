@@ -121,18 +121,9 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .history-gallery-caption {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.95rem;
-      text-align: center;
-      color: var(--dark-text);
-      margin-top: 1rem;
-      font-style: italic;
-    }
-
     /* Sezioni di Contenuto */
     .content-section {
-      padding: 3rem 0;
+      padding: 5rem 0;
       margin-bottom: 2rem;
       border-radius: 0;
       position: relative;
@@ -178,6 +169,42 @@
       color: var(--dark-text);
     }
 
+    /* Galleria immagini */
+    .history-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+
+    .history-gallery-item {
+      flex: 1 1 300px;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .history-gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .history-gallery-item img:hover {
+      transform: scale(1.02);
+    }
+
+    .history-gallery-caption {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      text-align: center;
+      color: var(--dark-text);
+      margin-top: 1rem;
+      font-style: italic;
+    }
+
     /* Quote */
     .quote {
       font-family: 'Cormorant Garamond', serif;
@@ -191,107 +218,6 @@
       border-left: 4px solid var(--rust);
       border-radius: 0 8px 8px 0;
     }
-
-    /* ===========================
-   CAROSELLO FOTO
-=========================== */
-
-.carousel-container{
-    max-width:900px;
-    margin:3rem auto;
-    padding:0;
-}
-
-#photoCarousel{
-    width:100%;
-}
-
-.carousel-inner{
-    border-radius:12px;
-    overflow:hidden;
-}
-
-.carousel-item{
-    text-align:center;
-    background:#000;
-}
-
-.carousel-item img{
-    display:block;
-    width:100%;
-    height:75vh;
-    object-fit:contain;
-    object-position:center;
-    margin:auto;
-}
-
-.carousel-control-prev,
-.carousel-control-next{
-    width:12%;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon{
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    background-color:rgba(0,0,0,.6);
-    background-size:55%;
-}
-
-.carousel-indicators{
-    margin-top:15px;
-    position:static;
-}
-
-.carousel-indicators button{
-    width:10px !important;
-    height:10px !important;
-    border-radius:50%;
-    background-color:var(--rust) !important;
-}
-
-/* ---------- TABLET ---------- */
-
-@media (max-width:992px){
-
-    .carousel-item img{
-        height:70vh;
-    }
-
-}
-
-/* ---------- TELEFONO ---------- */
-
-@media (max-width:768px){
-
-    .carousel-container{
-        width:100%;
-        padding:0;
-    }
-
-    .carousel-item img{
-        width:100%;
-        height:82vh;
-        object-fit:contain;
-    }
-
-    .carousel-control-prev,
-    .carousel-control-next{
-        width:15%;
-    }
-
-}
-
-/* ---------- TELEFONI PICCOLI ---------- */
-
-@media (max-width:480px){
-
-    .carousel-item img{
-        height:85vh;
-    }
-
-}
 
     /* Footer */
     .footer {
@@ -342,17 +268,16 @@
       .hero h1 { font-size: 3rem; }
       .hero p { font-size: 1.1rem; }
       .section-title { font-size: 2rem; }
+      .history-gallery { gap: 1.5rem; }
     }
 
     @media (max-width: 768px) {
       .hero { padding: 100px 0; }
       .hero-content { padding: 1.5rem; }
-      .content-section { padding: 2rem 0; }
+      .content-section { padding: 3rem 0; }
       .hero h1 { font-size: 2.5rem; }
+      .history-gallery { flex-direction: column; align-items: center; }
       .logo, .footer-logo { height: 35px; margin: 0 0.5rem; }
-      .carousel-item img {
-        max-height: 70vh; /* Altezza leggermente ridotta su mobile */
-      }
     }
   </style>
 </head>
@@ -393,6 +318,16 @@
     </div>
   </section>
 
+  <div>
+      <div class="history-gallery">
+        <div class="history-gallery-item">
+          <img src="./img/12.jpeg" alt="Luigi Giorgis">
+          <p class="history-gallery-caption">Il testimone Luigi Giorgis</p>
+        </div>
+      </div>
+    </div>
+
+  
   <!-- Sezione: Relazione del Massacro -->
   <section class="content-section">
     <div class="container">
